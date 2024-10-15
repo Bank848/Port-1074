@@ -126,7 +126,7 @@ body {
 /* General Navbar Styling */
 .navbar {
     display: flex; 
-    justify-content: space-between; 
+    justify-content: space-between; /* กระจายปุ่มให้เท่า ๆ กัน */
     align-items: center; 
     padding: 15px 20px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -144,28 +144,27 @@ body {
 /* Navbar List Style */
 .navbar ul {
     list-style: none;
-    display: flex;
-    justify-content: space-between; /* กระจายปุ่มให้เท่า ๆ กัน */
+    display: flex; /* ใช้ flexbox */
+    justify-content: space-around; /* กระจายปุ่มให้เท่า ๆ กัน */
     margin: 0;
     padding: 0;
-    width: 100%;
-    flex-wrap: wrap; /* ให้ปุ่มจัดเรียงเองเมื่อพื้นที่ไม่พอ */
+    width: 100%; /* ให้ใช้ความกว้างทั้งหมด */
 }
 
 /* Navbar List Items */
 .navbar ul li {
-    flex: 1 1 30%; /* ปรับให้แต่ละปุ่มใช้พื้นที่ 30% */
+    flex: 1; /* ให้แต่ละปุ่มมีความกว้างเท่ากัน */
     text-align: center; /* จัดตำแหน่งปุ่มให้อยู่ตรงกลาง */
 }
 
 .navbar ul li a {
-    color: #ffffff;
+    color: #ffffff; /* สีตัวอักษรใน navbar สีขาว */
     text-decoration: none;
-    font-size: 1.2rem; /* ปรับขนาดฟอนต์ */
+    font-size: 1.2rem; /* ปรับขนาดฟอนต์ให้เหมาะสม */
     font-weight: 500;
-    padding: 10px; /* ลด padding รอบปุ่ม */
+    padding: 10px 0; /* ลด padding รอบปุ่ม */
     border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s; 
 }
 
 .navbar ul li a:hover {
