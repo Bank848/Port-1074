@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank's Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div id="current-time" class="current-time"></div> <!-- แสดงเวลา -->
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home -->
+    <section id="home" class="section">
+        <div class="home-container">
+            <div class="home-left">
+                <img src="images/home-right.png" alt="Bank at computer">
+            </div>
+            <div class="home-right">
+                <h1 class="home-font-large">Hello, I AM <br> Sitthichai Phirompan</h1>
+                <p>CPE38 KMUTT</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Me -->
+    <section id="about" class="section">
+        <h1 class="aboutme-font-large">About Me</h1>
+        <img src="images/ME.jpg" alt="ME jpg" class="about-image">
+        <p>
+            <h1 class="about-font-large">My name is Sitthichai Phirompan, also known as Bank.<br>
+                I’m currently pursuing a degree in Computer Engineering<br>
+                at King Mongkut’s University of Technology Thonburi (KMUTT).<br>
+                I have a deep passion for robotics, coding, and teamwork. Throughout my academic journey,<br>
+                I’ve earned multiple awards in robotics competitions and coding challenges,<br>
+                showcasing my abilities in innovation and problem-solving.</h1>
+        </p>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section">
+        <h1 class="education-font-large">Education</h1>
+        <a href="https://www.canva.com/design/DAGSWedGags/sMIw9fx6VudJU_jIm1qqxQ/edit?utm_content=DAGSWedGags&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="button-large">
+            View My Educational Background
+        </a>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+        <h1 class="skills-font-large">Skills</h1>
+        <ul class="skills-list">
+            <li><img src="images/python-logo.png" alt="Python Logo"> Python</li>
+            <li><img src="images/c-logo.png" alt="C Logo"> C CODE</li>
+        </ul>
+    </section>
+
+    <!-- Contact Me -->
+    <section id="contact" class="section">
+        <h1 class="contact-font-large">Contact Me</h1>
+        <div class="social-links">
+            <a href="https://web.facebook.com/BankSitthichaiPhirompan/" target="_blank"><img src="images/facebook-logo.png" alt="Facebook Logo"></a>
+            <a href="https://www.instagram.com/bank_848/" target="_blank"><img src="images/instagram-logo.png" alt="Instagram Logo"></a>
+            <div class="discord-user">
+                <img src="images/discord-logo.png" alt="Discord Logo">
+                <span class="user-id">Discord: bank848</span> 
+            </div>
+            <a href="https://linktr.ee/bankch" target="_blank"><img src="images/linktree-logo.png" alt="Linktree Logo"></a>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    <script>
+        // JavaScript สำหรับการแสดงผลเมื่อเลื่อน
+        const sections = document.querySelectorAll('.section');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible'); // เพิ่มคลาสเมื่อมองเห็น
+                } else {
+                    entry.target.classList.remove('visible'); // ลบคลาสเมื่อไม่มองเห็น
+                }
+            });
+        });
+
+        sections.forEach(section => {
+            observer.observe(section); 
+        });
+    </script>
+
+</body>
+</html>

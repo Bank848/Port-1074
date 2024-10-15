@@ -1,0 +1,421 @@
+/* General styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%; 
+}
+
+body {
+    font-family: 'Itim', cursive;
+}
+
+.section {
+    padding: 100px 20px;
+    margin: 0;
+    position: relative;
+    text-align: center;
+    opacity: 0; 
+    transform: translateY(20px); 
+    transition: opacity 0.5s ease, transform 0.5s ease; 
+}
+
+.section.visible {
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+.section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, rgb(209, 41, 41), rgb(234, 240, 53));
+    transform: scaleX(0); 
+    animation: growBar 0.5s forwards; 
+}
+
+@keyframes growBar {
+    to {
+        transform: scaleX(1); 
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar adjustments */
+    .navbar ul {
+        justify-content: space-around; /* กระจายปุ่มให้เท่า ๆ กัน */
+    }
+
+    .navbar ul li {
+        flex: 1 1 25%; /* ปรับให้แต่ละปุ่มใช้พื้นที่ 25% */
+        margin-bottom: 10px; /* ระยะห่างระหว่างปุ่มในแนวตั้ง */
+    }
+
+    .navbar ul li a {
+        font-size: 1rem; /* ลดขนาดฟอนต์ในมือถือ */
+        padding: 8px; /* ลด padding รอบปุ่ม */
+    }
+
+    .navbar {
+        height: auto; /* ให้ navbar ขยายความสูงตามเนื้อหา */
+        padding: 10px; /* ลด padding ของ navbar */
+    }
+    
+    /* Home Section adjustments */
+    .home-container {
+        flex-direction: column; /* จัดวางเนื้อหาเป็นแนวตั้งในมือถือ */
+        text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+    }
+
+    .home-right {
+        padding: 10px;
+    }
+
+    .home-left img {
+        max-width: 100%; /* ปรับขนาดรูปภาพให้เหมาะกับหน้าจอเล็ก */
+    }
+
+    .home-font-large {
+        font-size: 2rem; /* ปรับขนาดฟอนต์ให้เล็กลงในมือถือ */
+    }
+
+    /* About Section adjustments */
+    .about-container {
+        flex-direction: column; /* จัดวางเป็นแนวตั้งในมือถือ */
+        text-align: center;
+    }
+
+    .about-image {
+        margin-bottom: 20px; /* เพิ่มระยะห่างระหว่างรูปภาพและข้อความ */
+        width: 200px; /* ปรับขนาดรูปภาพให้เล็กลง */
+        height: 200px;
+    }
+
+    .about-font-large {
+        font-size: 1.5rem; /* ลดขนาดฟอนต์ในมือถือ */
+    }
+
+    /* Skills Section adjustments */
+    .skills-list {
+        flex-direction: column; /* เปลี่ยนการจัดวางเป็นแนวตั้ง */
+        align-items: center;
+    }
+
+    .skills-list li {
+        margin: 20px 0; /* เพิ่มระยะห่างระหว่างรายการ */
+    }
+
+    /* Contact Section adjustments */
+    .social-links img {
+        width: 100px; /* ลดขนาดไอคอนในมือถือ */
+        height: 100px;
+    }
+
+    /* General adjustments for sections */
+    .section {
+        padding: 50px 10px; /* ลด padding ของแต่ละ section */
+    }
+}
+
+/* General Navbar Styling */
+.navbar {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    height: 60px;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    transition: opacity 0.5s ease; 
+    opacity: 1; 
+}
+
+/* Navbar List Style */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between; /* กระจายปุ่มให้เท่า ๆ กัน */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    flex-wrap: wrap; /* ให้ปุ่มจัดเรียงเองเมื่อพื้นที่ไม่พอ */
+}
+
+/* Navbar List Items */
+.navbar ul li {
+    flex: 1 1 30%; /* ปรับให้แต่ละปุ่มใช้พื้นที่ 30% */
+    text-align: center; /* จัดตำแหน่งปุ่มให้อยู่ตรงกลาง */
+}
+
+.navbar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem; /* ปรับขนาดฟอนต์ */
+    font-weight: 500;
+    padding: 10px; /* ลด padding รอบปุ่ม */
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* สีพื้นหลังตอน hover */
+    color: #ffdd57; /* เปลี่ยนสีตัวอักษรตอน hover */
+    border-radius: 5px;
+}
+
+.navbar:hover {
+    background: linear-gradient(90deg, #4e54c8, #009fff);
+    transform: translateY(-5px); /* เคลื่อนที่ขึ้นเล็กน้อยตอน hover */
+}
+
+.current-time {
+    color: #ffffff; 
+    font-size: 1.2rem; 
+    margin-left: 20px; /* ระยะห่างจาก Navbar */
+}
+
+/* Section heading styling */
+h1 {
+    color: #333; /* สีตัวอักษรทั่วไปในเนื้อหา */
+    font-weight: bold;
+}
+
+h1.aboutme-font-large {
+    color: #11cb46; 
+}
+
+h1.education-font-large {
+    color: #fff700; 
+}
+
+h1.skills-font-large {
+    color: #4035e3; 
+}
+
+h1.contact-font-large {
+    color: #ef16c0; 
+}
+
+/* Text within sections */
+.about-text, .link-large, .skills-list li, .contact-font-large {
+    color: #cb3131; 
+}
+
+.link-large:hover {
+    color: #ffdd57; 
+}
+
+/* Home Section */
+#home {
+    background: linear-gradient(180deg, #cce3e7, #7e9ec9);
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.home-font-large {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #333;
+    opacity: 0; /* เริ่มต้นให้ซ่อน */
+    transform: translateY(20px); /* เคลื่อนที่ลง */
+    animation: slideIn 1s forwards; /* เพิ่มแอนิเมชัน */
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home-left {
+    flex: 1;
+    text-align: center;
+}
+
+.home-left img {
+    max-width: 80%;
+}
+
+.home-right {
+    flex: 1;
+    text-align: left;
+    padding: 20px;
+}
+
+.home-right p {
+    font-size: 3rem;
+    color: #777;
+}
+
+/* About section */
+#about {
+    background: linear-gradient(180deg, #EDE8DC, #A5B68D);
+}
+
+.aboutme-font-large {
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.about-font-large {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+}
+
+.about-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.about-text {
+    font-size: 1.2rem;
+}
+
+/* Education section */
+#education {
+    background: linear-gradient(180deg, #A5B68D, #b5cc81);
+}
+
+.education-font-large {
+    font-size: 3rem;
+}
+
+.link-large {
+    font-size: 1.8rem;
+    color: #ff1717;
+    text-decoration: underline;
+}
+
+.link-large:hover {
+    color: #ec06f8;
+}
+
+.button-large {
+    display: inline-block; 
+    padding: 15px 30px; 
+    font-size: 1.2rem; 
+    font-weight: bold; 
+    color: #ffffff; 
+    background-color: #39db3e; 
+    border: 2px solid #ffffff; /* สีกรอบ */
+    border-radius: 5px; /* ขอบมน */
+    text-decoration: none; /* ลบเส้นใต้ */
+    transition: background-color 0.3s, transform 0.3s; 
+    margin-top: 20px;
+}
+
+.button-large:hover {
+    background-color: #12c8ff; /* เปลี่ยนสีตอน hover */
+    transform: translateY(-2px); /* ขยับขึ้นเล็กน้อยตอน hover */
+}
+
+/* Skills section */
+#skills {
+    background: linear-gradient(180deg, #dfc6a3, #E7CCCC);
+}
+
+.skills-font-large {
+    font-size: 4rem;
+}
+
+.skills-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.skills-list li {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.skills-list img {
+    width: 200px;
+    height: 200px;
+    margin-right: 10px;
+}
+
+/* Contact section */
+#contact {
+    background: linear-gradient(180deg, #E7CCCC, #d18e8e);
+}
+
+.contact-font-large {
+    font-size: 3rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links img {
+    width: 10vw; /* ปรับขนาดไอคอนในมือถือ (10% ของความกว้างหน้าจอ) */
+    height: auto; /* ให้รักษาสัดส่วนของภาพ */
+    transition: transform 0.3s ease; /* เพิ่มการเปลี่ยนแปลง */
+}
+
+.social-links img:hover {
+    transform: scale(1.1); /* ขยายขนาดตอน hover */
+}
+
+.discord-user {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.user-id {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%) translateY(10px); /* เคลื่อนที่ลง */
+    display: none;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease; 
+}
+
+.discord-user:hover .user-id {
+    display: block;
+    transform: translateX(-50%) translateY(0); /* ขยับขึ้นตอน hover */
+}
+
+.discord-user span {
+    margin-left: 10px;
+    font-size: 1.5rem;
+}
